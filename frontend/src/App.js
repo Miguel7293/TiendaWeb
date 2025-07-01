@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import ProductList from './components/ProductList';
+import ProductList from './';
 import Cart from './components/Cart';
 import FloatingCartButton from './components/FloatingCartButton';
 import 'bootstrap/dist/css/bootstrap.min.css';
