@@ -16,4 +16,4 @@ services:
     buildCommand: |
       npm install --unsafe-perm --legacy-peer-deps
       npm run build
-    publishPath: "./build"
+    staticPublishPath: "./build"
