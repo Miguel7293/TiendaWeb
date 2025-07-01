@@ -9,14 +9,11 @@ services:
       - key: PORT
         value: 10000
 
-  - type: web
-    name: tienda-frontend
-    env: node
-    plan: free
-    buildCommand: npm install && npm run build
-    startCommand: npm start
+  - type: static_site
+    name: frontend
     root: frontend
-    envVars:
-      - key: NODE_VERSION
-        value: 18
-    staticPublishPath: build
+    nodeVersion: 18.18.2
+    buildCommand: |
+      npm install --unsafe-perm --legacy-peer-deps
+      npm run build
+    publishPath: "./build"
