@@ -9,17 +9,14 @@ services:
       - key: PORT
         value: 10000
 
-services:
   - type: web
     name: tienda-frontend
     env: node
     plan: free
-    buildCommand: cd frontend && npm install && npm run build
-    startCommand: cd frontend && npm start
-    buildFilter:
-      paths:
-        - frontend/**
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    root: frontend
     envVars:
       - key: NODE_VERSION
         value: 18
-    staticPublishPath: frontend/build
+    staticPublishPath: build
