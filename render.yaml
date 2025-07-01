@@ -10,7 +10,12 @@ services:
         value: 10000
 
   - type: static_site
-    name: tiendita-frontend
-    buildCommand: npm run build
-    staticPublishPath: "./build"
+    name: frontend
     root: frontend
+    buildCommand: |
+      npm install --unsafe-perm
+      npm run build
+    publishPath: "./build"
+    envVars:
+      - key: CI
+        value: "false"
