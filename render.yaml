@@ -10,9 +10,16 @@ services:
         value: 10000
 
 services:
-  - type: static_site
-    name: frontend
-    root: frontend
-    buildCommand: npm run build
-    publishPath: "./build"
-    nodeVersion: 18.18.2
+  - type: web
+    name: tienda-frontend
+    env: node
+    plan: free
+    buildCommand: cd frontend && npm install && npm run build
+    startCommand: cd frontend && npm start
+    buildFilter:
+      paths:
+        - frontend/**
+    envVars:
+      - key: NODE_VERSION
+        value: 18
+    staticPublishPath: frontend/build
