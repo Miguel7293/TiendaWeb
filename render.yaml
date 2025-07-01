@@ -9,13 +9,10 @@ services:
       - key: PORT
         value: 10000
 
+services:
   - type: static_site
     name: frontend
     root: frontend
-    buildCommand: |
-      npm install --unsafe-perm
-      npm run build
+    buildCommand: npm run build
     publishPath: "./build"
-    envVars:
-      - key: CI
-        value: "false"
+    nodeVersion: 18.18.2
