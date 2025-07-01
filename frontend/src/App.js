@@ -1,42 +1,12 @@
-// src/App.js
-import React, { useState, useEffect } from 'react';
-import { Container, Button, Alert } from 'react-bootstrap';
-import './App.css';
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  const [backendMessage, setBackendMessage] = useState('');
-  const [error, setError] = useState('');
-
-  const testBackend = async () => {
-    try {
-      const response = await fetch('/api/test');
-      const data = await response.json();
-      setBackendMessage(data.message);
-    } catch (err) {
-      setError('Error conectando al backend');
-    }
-  };
-
   return (
-    <Container className="mt-5">
-      <h1>Mi Proyecto React + Render</h1>
-      
-      <Button 
-        variant="primary" 
-        onClick={testBackend}
-        className="my-3"
-      >
-        Probar Backend
-      </Button>
-
-      {backendMessage && (
-        <Alert variant="success">{backendMessage}</Alert>
-      )}
-      
-      {error && (
-        <Alert variant="danger">{error}</Alert>
-      )}
-    </Container>
+    <div className="container mt-5">
+      <h1>¡TiendaWeb Funcionando!</h1>
+      <p>La aplicación está configurada correctamente.</p>
+    </div>
   );
 }
 
