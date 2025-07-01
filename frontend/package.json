@@ -5,7 +5,7 @@
   "scripts": {
     "start": "react-scripts start",
     "prebuild": "npm install --unsafe-perm && npm run fix-permissions",
-    "build": "react-scripts build",
+    "build": "node_modules/.bin/react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "fix-permissions": "chmod -R +x node_modules/.bin"
@@ -17,5 +17,6 @@
     "react-dom": "^18.2.0",
     "react-scripts": "^0.0.0"
   },
-  "proxy": "http://localhost:10000"
+  "proxy": "http://localhost:10000",
+  "presbuild": "if [ ! -f node_modules/.bin/react-scripts ]; then npm install react-scripts@5.0.1 --save-exact --unsafe-perm; fi"
 }
